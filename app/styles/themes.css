@@ -1,0 +1,36 @@
+.light-background {
+  background: url("/backgrounds/backgroundLight.svg") no-repeat;
+  background-size: 100% 100%;
+}
+
+.dark-background {
+  background: url("/backgrounds/backgroundDark.svg") no-repeat;
+  background-size: 100% 100%;
+}
+
+.light-gradient {
+  background: linear-gradient(-38deg, #c2fcff, #d1c2ff, #ffc2e3);
+  background-size: 600% 600%;
+  animation: GradientAnimation 45s ease infinite;
+  z-index: 10;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.dark-gradient {
+  background: linear-gradient(-38deg, #003d40, #100040, #400023);
+  background-size: 600% 600%;
+  animation: GradientAnimation 45s ease infinite;
+  filter: drop-shadow(0 0 5px rgba(200, 200, 200, 0.3));
+}
+
+@keyframes GradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
