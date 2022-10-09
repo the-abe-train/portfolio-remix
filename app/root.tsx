@@ -18,7 +18,6 @@ export const meta: MetaFunction = () => {
     "theme-color": "#FDFAF6",
   };
   // TODO preview picture
-  // TODO favicon
   // TODO Error and catch boundaries
   const twitter = {
     "twitter:site": "@theAbeTrain",

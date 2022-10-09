@@ -3,7 +3,9 @@ import portrait from "~/images/roo.jpg";
 import { json, LoaderArgs } from "@remix-run/node";
 import Layout from "~/components/Layout";
 
-export async function loader({ request, params }: LoaderArgs) {
+// TODO make page more centred on big screens
+
+export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
   const theme = url.searchParams.get("theme") || "light";
   const page = url.pathname;
@@ -12,7 +14,7 @@ export async function loader({ request, params }: LoaderArgs) {
 }
 
 export default function () {
-  const { theme, page } = useLoaderData<typeof loader>();
+  const { theme } = useLoaderData<typeof loader>();
   return (
     <Layout theme={theme} page={"me"}>
       <div className="space-y-6 sm:space-y-0 sm:grid gap-6 ">
