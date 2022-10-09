@@ -1,4 +1,4 @@
-import { json, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -6,11 +6,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import styles from "./styles/app.css";
+import tailwind from "./styles/tailwind.css";
 import themes from "./styles/themes.css";
 
 export const meta: MetaFunction = () => {
@@ -42,7 +39,7 @@ export const meta: MetaFunction = () => {
 
 export function links() {
   return [
-    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: tailwind },
     { rel: "stylesheet", href: themes },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com" },
