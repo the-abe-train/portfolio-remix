@@ -112,7 +112,7 @@ export default function () {
             ></textarea>
           </label>
           <div className="space-x-6 text-center">
-            <Link to={`/?theme=${theme}`}>
+            <Link to={`/?theme=${theme}`} tabIndex={-1}>
               <button
                 type="button"
                 className="border border-[#666666] rounded-lg py-2 px-6 min-w-max"
