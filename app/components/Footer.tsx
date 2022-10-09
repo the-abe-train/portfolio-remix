@@ -1,11 +1,12 @@
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 import Icon from "./Icon";
 
 export default function ({ theme }: { theme: string }) {
+  const newTheme = { dark: "light", light: "dark" }[theme];
   return (
     <footer
       className="w-full h-16 clear-both order-last flex-grow relative
-  sm:max-w-sm sm:mx-auto sm:col-span-2
+  sm:max-w-sm sm:mx-auto sm:col-span-2 mt-8
   "
     >
       <nav
@@ -32,7 +33,7 @@ export default function ({ theme }: { theme: string }) {
             <input
               className="hidden"
               type="text"
-              value={theme !== "dark" ? "dark" : "light"}
+              value={newTheme}
               name="theme"
               readOnly
             />

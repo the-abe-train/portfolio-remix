@@ -2,7 +2,6 @@
   {
     "title": "Globle",
     "description": "A geography game. Try to figure out the mystery country in as few guesses as possible!",
-    "image": "../images/globle.png",
     "alt": "Globle",
     "url": "https://globle-game.com",
     "repo": "https://github.com/the-abe-train/globle",
@@ -11,7 +10,6 @@
   {
     "title": "Plurality",
     "description": "A Web3 guessing game. How well do you know the most common opinions on the internet?",
-    "image": "../images/plurality.png",
     "alt": "Plurality",
     "url": "https://plurality.fun",
     "repo": "https://github.com/the-abe-train/plurality",
@@ -20,17 +18,14 @@
   {
     "title": "Genitle",
     "description": "The classic daily guessing game with a sex-ed theme! Made to promote sexual literacy, as well as the film A Sexplanation.",
-    "image": "../images/apple.png",
     "alt": "Genitle",
     "url": "https://genitle.herraproductions.com",
     "repo": "https://github.com/the-abe-train/sexplanation-game",
     "type": "game"
   },
-
   {
     "title": "Motzash",
     "description": "A is your dashboard companion for Jewish holidays with practical widgets and a social network.",
-    "image": "../images/motzash.png",
     "alt": "Motzash",
     "url": "https://motzash.app/",
     "repo": "https://github.com/the-abe-train/motzash",
@@ -39,7 +34,6 @@
   {
     "title": "Spotify Prewrapped",
     "description": "A web app for Spotify users. Don't wait until the end of the year for insights into your favourite tracks and artists!",
-    "image": "../images/spotify.png",
     "alt": "Spotify Prewrapped",
     "url": "https://spotify-prewrapped.vercel.app/",
     "repo": "https://github.com/the-abe-train/spotify-prewrapped",
@@ -48,7 +42,6 @@
   {
     "title": "Dynamic Gradients",
     "description": "A tool for web developers. Use dials and switches to design and export dynamic gradients in CSS!",
-    "image": "../images/gradients.png",
     "alt": "Dynamic Gradients",
     "url": "https://dynamicgradients.com",
     "repo": "https://github.com/the-abe-train/dynamic-gradient",
