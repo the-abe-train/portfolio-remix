@@ -1,8 +1,15 @@
 import { LoaderArgs, json } from "@remix-run/node";
-import { Form, Link, useLoaderData } from "@remix-run/react";
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
+import {
+  Form,
+  Link,
+  useActionData,
+  useLoaderData,
+  useTransition,
+} from "@remix-run/react";
+
 import Layout from "~/components/Layout";
+import type { ActionArgs } from "@remix-run/node";
+import { sendEmail } from "~/util/nodemailer";
 
 export async function loader({ request, params }: LoaderArgs) {
   const url = new URL(request.url);
@@ -12,8 +19,53 @@ export async function loader({ request, params }: LoaderArgs) {
   return json({ theme, page });
 }
 
+export async function action({ request }: ActionArgs) {
+  const getEntry = (formData: FormData, entry: string) => {
+    const value = formData.get(entry);
+    if (typeof value !== "string" || !value) {
+      return "";
+    }
+    return value;
+  };
+  const formData = await request.formData();
+  const email = getEntry(formData, "email");
+  const name = getEntry(formData, "name");
+  const text = getEntry(formData, "message");
+
+  const errors = {
+    email: email ? null : "Email is required",
+    name: name ? null : "Name is required",
+    text: text ? null : "Message is required",
+  };
+  const hasErrors = Object.values(errors).some(Boolean);
+  if (hasErrors) {
+    return json({
+      ...errors,
+      message: "Please make sure all fields are filled out.",
+    });
+  }
+
+  const subject = "New email from portfolio website";
+
+  try {
+    // Takes too long to actually wait for the response
+    sendEmail({ name, email, text, subject });
+    const finish = () => {
+      return new Promise<Record<"message", string>>((res) => {
+        setTimeout(() => res({ message: "Email sent!" }), 2000);
+      });
+    };
+    const x = await finish();
+    return json(x);
+  } catch (e) {
+    return json({ message: "An error occurred, please try again later." });
+  }
+}
+
 export default function () {
   const { theme, page } = useLoaderData<typeof loader>();
+  const actionData = useActionData<typeof action>();
+  const transition = useTransition();
 
   return (
     <Layout theme={theme} page={page}>
@@ -24,16 +76,15 @@ export default function () {
           how you're feeling today. I love to hear from people and I read every
           message!
         </p>
-        <Form action="POST">
+        <Form method="post">
           <label className="block mb-6">
             <span>Your name</span>
             <input
               type="text"
               name="name"
-              className=" block w-full mt-1 p-1 border-gray-300 rounded-md drop-shadow-[0_0_3px_rgba(0,0,0,0.4)]"
+              className="block w-full mt-1 py-1 px-2 border-gray-500 border rounded-md 
+              dark:bg-gray-200 dark:text-black"
               placeholder="The Joe Schmoe"
-              // value={name}
-              // onChange={(e) => setName(e.currentTarget.value)}
               required
             />
           </label>
@@ -42,10 +93,9 @@ export default function () {
             <input
               name="email"
               type="email"
-              className=" block w-full mt-1 p-1 border-gray-300 rounded-md drop-shadow-[0_0_3px_rgba(0,0,0,0.4)]"
+              className="block w-full mt-1 py-1 px-2 border-gray-500  border rounded-md 
+              dark:bg-gray-200 dark:text-black"
               placeholder="joe.schmoe@example.com"
-              // value={email}
-              // onChange={(e) => setEmail(e.currentTarget.value)}
               required
             />
           </label>
@@ -53,11 +103,11 @@ export default function () {
             <span>Your message</span>
             <textarea
               name="message"
-              className="block w-full mt-1 p-1 border-gray-300 rounded-md drop-shadow-[0_0_3px_rgba(0,0,0,0.4)]"
+              className="block w-full mt-1 py-1 px-2 border-gray-500 rounded-md 
+              dark:bg-gray-200 dark:text-black border "
               rows={3}
               placeholder="Please be polite with your message :)"
-              // value={message}
-              // onChange={(e) => setMessage(e.currentTarget.value)}
+              minLength={20}
               required
             ></textarea>
           </label>
@@ -73,13 +123,15 @@ export default function () {
             <button
               type="submit"
               className={`rounded-lg py-2 px-6 min-w-max ${theme}-gradient
-            hover:drop-shadow-none transition-all`}
+            hover:drop-shadow-none disabled:drop-shadow-none transition-all`}
+              disabled={transition.state !== "idle"}
             >
               Send
             </button>
           </div>
         </Form>
-        {/* {received && <p className="text-center my-8">Message sent!</p>} */}
+        {actionData && <p className="text-center my-8">{actionData.message}</p>}
+        {/* <p className="text-center my-8">{"Penis town"}</p> */}
       </div>
     </Layout>
   );
