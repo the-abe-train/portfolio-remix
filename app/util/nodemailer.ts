@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { MailOptions } from "nodemailer/lib/sendmail-transport";
 
 const FROM_EMAIL = process.env.FROM_EMAIL || "";
 const TO_EMAIL = process.env.TO_EMAIL || "";
@@ -29,11 +30,11 @@ export function sendEmail({ name, email, text, subject }: Props) {
 
   console.log(emailBody);
 
-  const options = {
+  const options: MailOptions = {
     from: FROM_EMAIL,
     to: TO_EMAIL,
     subject,
-    text: emailBody,
+    html: emailBody,
   };
   console.log("Email sent from", email);
 
