@@ -45,7 +45,7 @@ export async function action({ request }: ActionArgs) {
     });
   }
 
-  const subject = "New email from portfolio website";
+  const subject = `Portfolio website email from: ${name}`;
 
   try {
     // Takes too long to actually wait for the response
