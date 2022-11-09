@@ -40,7 +40,7 @@ export default function () {
           <b>Full-stack Web Developer</b>. I'm best known for building web games
           that are played by hundreds of thousands of people around the world
           every day, including Globle and Plurality. I've also done freelance
-          projects to promote indpendent films and small businesses.
+          projects to promote independent films and small businesses.
         </p>
         <p>
           Looking for a freelancer to build your website, or a technical
