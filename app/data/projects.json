@@ -16,6 +16,14 @@
     "type": "game"
   },
   {
+    "title": "Globle: Capitals",
+    "description": "Another geogrpahy game, but this time you need to figure out the capital city!",
+    "alt": "Globle: Capitals",
+    "url": "https://globle-capitals.com",
+    "repo": "https://github.com/the-abe-train/globle-capitals",
+    "type": "game"
+  },
+  {
     "title": "Genitle",
     "description": "The classic daily guessing game with a sex-ed theme! Made to promote sexual literacy, as well as the film A Sexplanation.",
     "alt": "Genitle",

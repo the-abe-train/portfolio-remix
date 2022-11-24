@@ -12,7 +12,7 @@ type Props = {
 export default function Project({ title, description, alt, url, repo }: Props) {
   return (
     <div className="flex space-x-4">
-      <a href={url} className="flex flex-col justify-center">
+      <a href={url} className="flex flex-col my-6 sm:my-8">
         <img
           src={images[title]}
           alt={alt}
