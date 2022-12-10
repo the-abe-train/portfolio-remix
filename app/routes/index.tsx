@@ -44,7 +44,7 @@ export default function () {
         </p>
         <p>
           Looking for a freelancer to build your website, or a technical
-          co-founder for you startup? Let's connect!
+          co-founder for your startup? Let's connect!
         </p>
         <div className="w-full my-6 flex justify-center">
           <Link
