@@ -45,6 +45,9 @@ export async function action({ request }: ActionArgs) {
     });
   }
 
+  if (name === "CrytoFoelm")
+    return json({ message: "An error occurred, please try again later." });
+
   const subject = `Portfolio website email from: ${name}`;
 
   try {
