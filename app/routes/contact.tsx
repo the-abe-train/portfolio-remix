@@ -45,7 +45,8 @@ export async function action({ request }: ActionArgs) {
     });
   }
 
-  if (name === "CrytoFoelm")
+  const bannedNames = ["CrytoFoelm", "Foelm"];
+  if (bannedNames.includes(name))
     return json({ message: "An error occurred, please try again later." });
 
   const subject = `Portfolio website email from: ${name}`;
