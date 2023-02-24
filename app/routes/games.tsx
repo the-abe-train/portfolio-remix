@@ -17,7 +17,7 @@ export default function () {
   const games = projects.filter((proj) => proj.type === "game");
   return (
     <Layout theme={theme} page={page}>
-      <div className="grid sm:grid-cols-2 gap-8">
+      <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
         {games.map((project, idx) => {
           return (
             <div key={idx}>
