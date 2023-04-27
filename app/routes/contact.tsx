@@ -74,68 +74,26 @@ export default function () {
   return (
     <Layout theme={theme} page={page}>
       <div className="max-w-xl">
-        <p className="mb-8">
-          Use this form to send me a message. It can be about anything, from
-          feature requests on my projects, to collaboration opportunities, to
-          how you're feeling today. I love to hear from people and I read every
-          message!
+        <p>
+          The contact form on this site is no longer active. Please use the form
+          on the{" "}
+          <a href="https://trainwrecklabs.com/contact" className="underline">
+            Trainwreck Labs webiste
+          </a>{" "}
+          instead.
         </p>
-        <Form method="post">
-          <label className="block mb-6">
-            <span>Your name</span>
-            <input
-              type="text"
-              name="name"
-              className="block w-full mt-1 py-1 px-2 border-gray-500 border rounded-md 
-              dark:bg-gray-200 dark:text-black"
-              placeholder="The Joe Schmoe"
-              required
-            />
-          </label>
-          <label className="block mb-6">
-            <span>Email address</span>
-            <input
-              name="email"
-              type="email"
-              className="block w-full mt-1 py-1 px-2 border-gray-500  border rounded-md 
-              dark:bg-gray-200 dark:text-black"
-              placeholder="joe.schmoe@example.com"
-              required
-            />
-          </label>
-          <label className="block mb-6">
-            <span>Your message</span>
-            <textarea
-              name="message"
-              className="block w-full mt-1 py-1 px-2 border-gray-500 rounded-md 
-              dark:bg-gray-200 dark:text-black border "
-              rows={3}
-              placeholder="Please be polite with your message :)"
-              minLength={20}
-              required
-            ></textarea>
-          </label>
-          <div className="space-x-6 text-center">
-            <Link to={`/?theme=${theme}`} tabIndex={-1}>
-              <button
-                type="button"
-                className="border border-[#666666] rounded-lg py-2 px-6 min-w-max"
-              >
-                Cancel
-              </button>
-            </Link>
-            <button
-              type="submit"
-              className={`rounded-lg py-2 px-6 min-w-max ${theme}-gradient
-            hover:drop-shadow-none disabled:drop-shadow-none transition-all`}
-              disabled={transition.state !== "idle"}
-            >
-              Send
-            </button>
-          </div>
-        </Form>
-        {actionData && <p className="text-center my-8">{actionData.message}</p>}
-        {/* <p className="text-center my-8">{"Penis town"}</p> */}
+        <form
+          action="https://trainwrecklabs.com"
+          className="mx-auto w-min my-10"
+          style={{ width: "min-content", margin: "5rem auto" }}
+        >
+          <button
+            className={`rounded-lg py-2 px-6 min-w-max ${theme}-gradient
+        hover:drop-shadow-none transition-all mx-auto`}
+          >
+            Go to Trainwreck Labs
+          </button>
+        </form>
       </div>
     </Layout>
   );
