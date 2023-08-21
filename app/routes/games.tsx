@@ -17,15 +17,12 @@ export default function () {
   const games = projects.filter((proj) => proj.type === "game");
   return (
     <Layout theme={theme} page={page}>
-      <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
-        {games.map((project, idx) => {
-          return (
-            <div key={idx}>
-              <Project {...project} />
-            </div>
-          );
-        })}
-      </div>
+      <p>
+        For a full list of games, check out the official site for{" "}
+        <a className="underline" href="https://trainwrecklabs.com">
+          Trainwreck Labs!
+        </a>
+      </p>
     </Layout>
   );
 }

@@ -14,7 +14,6 @@ export default function ({ page, theme }: { page: string; theme: string }) {
       <nav className="flex w-full sm:max-w-sm sm:mx-auto justify-around text-lg">
         <Link to={`/?theme=${theme}`}>{pageName("Me")}</Link>
         <Link to={`/games?theme=${theme}`}>{pageName("Games")}</Link>
-        <Link to={`/apps?theme=${theme}`}>{pageName("Apps")}</Link>
         <Link to={`/media?theme=${theme}`}>{pageName("Media")}</Link>
       </nav>
     </header>

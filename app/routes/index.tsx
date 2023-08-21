@@ -30,21 +30,13 @@ export default function () {
           </div>
         </div>
         <p>
-          I'm a{" "}
-          <a
-            className="underline"
-            href="https://www.credly.com/badges/bc1d5730-f739-44ad-8024-b717f036cb56/public_url"
-          >
-            cloud-certified
-          </a>{" "}
-          <b>Full-stack Web Developer</b>. I'm best known for building web games
-          that are played by hundreds of thousands of people around the world
-          every day, including Globle and Plurality. I've also done freelance
-          projects to promote independent films and small businesses.
-        </p>
-        <p>
-          Looking for a freelancer to build your website, or a technical
-          co-founder for your startup? Let's connect!
+          I'm the CEO and Founder of{" "}
+          <a href="https://trainwrecklabs.com" className="underline">
+            Trainwreck Labs
+          </a>
+          , a small game studio that builds daily, free-to-play web apps. All of
+          my games, such as Globle and Metazooa, have an educational component
+          and aim to teach you something new every day.
         </p>
         <div className="w-full my-6 flex justify-center">
           <Link
